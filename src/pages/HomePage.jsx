@@ -1,10 +1,12 @@
 import { useEffect, useState } from "react";
 import Card from "../components/Card";
 
+import { useMoviesList } from "../contexts/MoviesListContext";
+
 export default function HomePage() {
 	const [moviesList, setMoviesList] = useState([]);
 	const [seriesList, setSeriesList] = useState([]);
-	const [list, setList] = useState([]);
+	const { list, setList } = useMoviesList();
 	const [query, setQuery] = useState("");
 
 	const endpoint = import.meta.env.VITE_API_URL;
