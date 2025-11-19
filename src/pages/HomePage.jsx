@@ -8,6 +8,7 @@ export default function HomePage() {
 
 	const endpoint = import.meta.env.VITE_API_URL;
 	const key = import.meta.env.VITE_API_KEY;
+	const imageUrl = "https://image.tmdb.org/t/p/";
 	const languageOption = "it-IT";
 
 	const flags = {
@@ -73,6 +74,10 @@ export default function HomePage() {
 				{list.map((current) =>
 					current.title ? (
 						<li key={`${current.id}-${current.title}`}>
+							<img
+								src={`${imageUrl}w342${current.poster_path}`}
+								alt={current.title}
+							/>
 							<p>Titolo: {current.title}</p>
 							<p>Titolo originale: {current.original_title}</p>
 							<p>
@@ -85,6 +90,10 @@ export default function HomePage() {
 						</li>
 					) : (
 						<li key={`${current.id}-${current.name}`}>
+							<img
+								src={`${imageUrl}w342${current.poster_path}`}
+								alt={current.title}
+							/>
 							<p>Titolo: {current.name}</p>
 							<p>Titolo originale: {current.original_name}</p>
 							<p>
