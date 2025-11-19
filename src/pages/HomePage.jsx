@@ -20,6 +20,7 @@ export default function HomePage() {
 								original_language={current.original_language}
 								poster_path={current.poster_path}
 								vote={current.vote_average}
+								overview={current.overview}
 							/>
 						</div>
 					) : (
@@ -33,6 +34,7 @@ export default function HomePage() {
 								original_language={current.original_name}
 								poster_path={current.poster_path}
 								vote={current.vote_average}
+								overview={current.overview}
 							/>
 						</div>
 					),

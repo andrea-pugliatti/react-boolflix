@@ -4,6 +4,7 @@ export default function Card({
 	original_language,
 	poster_path,
 	vote,
+	overview,
 }) {
 	const imageUrl = "https://image.tmdb.org/t/p/";
 
@@ -43,14 +44,17 @@ export default function Card({
 		<div className="card">
 			<img src={`${imageUrl}w342${poster_path}`} alt={title} />
 			<div className="card-body">
-				<p className="card-title">Titolo: {title}</p>
+				<p className="card-title">
+					<span className="text-bold">{title}</span>
+				</p>
 				<p className="card-original-title">
-					Titolo originale: {original_title}
+					Titolo originale: <span className="text-bold">{original_title}</span>
 				</p>
 				<p className="card-language">
 					Lingua: {flags[original_language] ? flags[original_language] : "🏴‍☠️"}
 				</p>
 				<p className="card-rating">Voto: {handleVote(Math.ceil(vote / 2))}</p>
+				<p className="card-description">{overview}</p>
 			</div>
 		</div>
 	);
