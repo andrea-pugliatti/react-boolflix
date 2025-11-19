@@ -40,7 +40,12 @@ export default function SearchBar() {
 
 	return (
 		<form onSubmit={handleSubmit}>
-			<input value={query} onChange={(event) => setQuery(event.target.value)} />
+			<input
+				name="search"
+				id="search"
+				value={query}
+				onChange={(event) => setQuery(event.target.value)}
+			/>
 			<button type="submit">Cerca</button>
 		</form>
 	);

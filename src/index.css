@@ -16,3 +16,33 @@ body {
 li {
 	padding: 1rem;
 }
+
+/* Header */
+header {
+	background-color: gray;
+	& > div {
+		padding: 1rem;
+		display: flex;
+		justify-content: space-between;
+	}
+
+	input {
+		padding: 0.5rem 1rem;
+		border: 1px solid black;
+		border-top-left-radius: 20px;
+		border-bottom-left-radius: 20px;
+	}
+
+	button {
+		padding: 0.5rem 1rem;
+		border: 1px solid black;
+		border-top-right-radius: 20px;
+		border-bottom-right-radius: 20px;
+		background-color: rgb(255, 225, 225);
+
+		&:hover {
+			cursor: pointer;
+			background-color: rgb(196, 143, 143);
+		}
+	}
+}
