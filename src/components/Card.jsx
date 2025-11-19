@@ -1,0 +1,53 @@
+export default function Card({
+	title,
+	original_title,
+	original_language,
+	poster_path,
+	vote,
+}) {
+	const imageUrl = "https://image.tmdb.org/t/p/";
+
+	const flags = {
+		en: "🇺🇸",
+		es: "🇪🇸",
+		fr: "🇫🇷",
+		de: "🇩🇪",
+		it: "🇮🇹",
+		pt: "🇧🇷",
+		ru: "🇷🇺",
+		hi: "🇮🇳",
+		pl: "🇵🇱",
+		nl: "🇳🇱",
+		sv: "🇸🇪",
+		tr: "🇹🇷",
+		el: "🇬🇷",
+		ja: "🇯🇵",
+		ko: "🇰🇷",
+		zh: "🇨🇳",
+		ar: "🇸🇦",
+		he: "🇮🇱",
+		id: "🇮🇩",
+		th: "🇹🇭",
+		vi: "🇻🇳",
+	};
+
+	const handleVote = (number) => {
+		let stars = "";
+		for (let i = 0; i < number; i++) {
+			stars += "★";
+		}
+		return stars;
+	};
+
+	return (
+		<div>
+			<img src={`${imageUrl}w342${poster_path}`} alt={title} />
+			<p>Titolo: {title}</p>
+			<p>Titolo originale: {original_title}</p>
+			<p>
+				Lingua: {flags[original_language] ? flags[original_language] : "🏴‍☠️"}
+			</p>
+			<p>Voto: {handleVote(Math.ceil(vote / 2))}</p>
+		</div>
+	);
+}

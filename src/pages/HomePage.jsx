@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import Card from "../components/Card";
 
 export default function HomePage() {
 	const [moviesList, setMoviesList] = useState([]);
@@ -8,40 +9,7 @@ export default function HomePage() {
 
 	const endpoint = import.meta.env.VITE_API_URL;
 	const key = import.meta.env.VITE_API_KEY;
-	const imageUrl = "https://image.tmdb.org/t/p/";
 	const languageOption = "it-IT";
-
-	const flags = {
-		en: "🇺🇸",
-		es: "🇪🇸",
-		fr: "🇫🇷",
-		de: "🇩🇪",
-		it: "🇮🇹",
-		pt: "🇧🇷",
-		ru: "🇷🇺",
-		hi: "🇮🇳",
-		pl: "🇵🇱",
-		nl: "🇳🇱",
-		sv: "🇸🇪",
-		tr: "🇹🇷",
-		el: "🇬🇷",
-		ja: "🇯🇵",
-		ko: "🇰🇷",
-		zh: "🇨🇳",
-		ar: "🇸🇦",
-		he: "🇮🇱",
-		id: "🇮🇩",
-		th: "🇹🇭",
-		vi: "🇻🇳",
-	};
-
-	const handleVote = (number) => {
-		let stars = "";
-		for (let i = 0; i < number; i++) {
-			stars += "★";
-		}
-		return stars;
-	};
 
 	const handleSubmit = (event) => {
 		event.preventDefault();
@@ -82,35 +50,23 @@ export default function HomePage() {
 				{list.map((current) =>
 					current.title ? (
 						<li key={`${current.id}-${current.title}`}>
-							<img
-								src={`${imageUrl}w342${current.poster_path}`}
-								alt={current.title}
+							<Card
+								title={current.title}
+								original_title={current.original_title}
+								original_language={current.original_language}
+								poster_path={current.poster_path}
+								vote={current.vote_average}
 							/>
-							<p>Titolo: {current.title}</p>
-							<p>Titolo originale: {current.original_title}</p>
-							<p>
-								Lingua:{" "}
-								{flags[current.original_language]
-									? flags[current.original_language]
-									: "🏴‍☠️"}
-							</p>
-							<p>Voto: {handleVote(Math.ceil(current.vote_average / 2))}</p>
 						</li>
 					) : (
 						<li key={`${current.id}-${current.name}`}>
-							<img
-								src={`${imageUrl}w342${current.poster_path}`}
-								alt={current.title}
+							<Card
+								title={current.name}
+								original_title={current.original_title}
+								original_language={current.original_name}
+								poster_path={current.poster_path}
+								vote={current.vote_average}
 							/>
-							<p>Titolo: {current.name}</p>
-							<p>Titolo originale: {current.original_name}</p>
-							<p>
-								Lingua:{" "}
-								{flags[current.original_language]
-									? flags[current.original_language]
-									: "🏴‍☠️"}
-							</p>
-							<p>Voto: {handleVote(Math.ceil(current.vote_average / 2))}</p>
 						</li>
 					),
 				)}
