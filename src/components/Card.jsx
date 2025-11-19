@@ -40,14 +40,18 @@ export default function Card({
 	};
 
 	return (
-		<div>
+		<div className="card">
 			<img src={`${imageUrl}w342${poster_path}`} alt={title} />
-			<p>Titolo: {title}</p>
-			<p>Titolo originale: {original_title}</p>
-			<p>
-				Lingua: {flags[original_language] ? flags[original_language] : "🏴‍☠️"}
-			</p>
-			<p>Voto: {handleVote(Math.ceil(vote / 2))}</p>
+			<div className="card-body">
+				<p className="card-title">Titolo: {title}</p>
+				<p className="card-original-title">
+					Titolo originale: {original_title}
+				</p>
+				<p className="card-language">
+					Lingua: {flags[original_language] ? flags[original_language] : "🏴‍☠️"}
+				</p>
+				<p className="card-rating">Voto: {handleVote(Math.ceil(vote / 2))}</p>
+			</div>
 		</div>
 	);
 }

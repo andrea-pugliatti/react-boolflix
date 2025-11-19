@@ -13,10 +13,6 @@ body {
 	margin: 0 auto;
 }
 
-li {
-	padding: 1rem;
-}
-
 /* Header */
 header {
 	background-color: gray;
@@ -44,5 +40,31 @@ header {
 			cursor: pointer;
 			background-color: rgb(196, 143, 143);
 		}
+	}
+}
+
+/* Movies List */
+.row {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-evenly;
+	gap: 1rem;
+	margin: 1rem -1rem;
+}
+
+/* Card */
+.card-container {
+	width: 330px;
+	padding: 1rem;
+}
+
+.card {
+	border: 1px solid black;
+	.card-body {
+		padding: 1rem;
+	}
+
+	img {
+		width: 100%;
 	}
 }
