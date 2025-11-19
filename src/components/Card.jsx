@@ -43,6 +43,7 @@ export default function Card({
 	return (
 		<div className="card">
 			<img src={`${imageUrl}w342${poster_path}`} alt={title} />
+
 			<div className="card-body">
 				<p className="card-title">
 					<span className="text-bold">{title}</span>
