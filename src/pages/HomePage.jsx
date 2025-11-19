@@ -35,6 +35,14 @@ export default function HomePage() {
 		vi: "🇻🇳",
 	};
 
+	const handleVote = (number) => {
+		let stars = "";
+		for (let i = 0; i < number; i++) {
+			stars += "★";
+		}
+		return stars;
+	};
+
 	const handleSubmit = (event) => {
 		event.preventDefault();
 
@@ -86,7 +94,7 @@ export default function HomePage() {
 									? flags[current.original_language]
 									: "🏴‍☠️"}
 							</p>
-							<p>Voto: {current.vote_average}</p>
+							<p>Voto: {handleVote(Math.ceil(current.vote_average / 2))}</p>
 						</li>
 					) : (
 						<li key={`${current.id}-${current.name}`}>
@@ -102,7 +110,7 @@ export default function HomePage() {
 									? flags[current.original_language]
 									: "🏴‍☠️"}
 							</p>
-							<p>Voto: {current.vote_average}</p>
+							<p>Voto: {handleVote(Math.ceil(current.vote_average / 2))}</p>
 						</li>
 					),
 				)}
