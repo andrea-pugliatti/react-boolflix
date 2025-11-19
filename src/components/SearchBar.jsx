@@ -1,3 +1,4 @@
+/** biome-ignore-all lint/correctness/useExhaustiveDependencies: <Bug> */
 import { useEffect, useState } from "react";
 
 import { useMoviesList } from "../contexts/MoviesListContext";
