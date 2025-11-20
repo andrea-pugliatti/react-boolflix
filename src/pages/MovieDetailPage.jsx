@@ -87,7 +87,7 @@ export default function MovieDetailPage() {
 					<p className="movie-description">{movie.overview}</p>
 					<div>
 						Attori principali:
-						{credits?.cast.slice(0, 4).map((current) => (
+						{credits?.cast?.slice(0, 4).map((current) => (
 							<p key={current.id}>{current.name}</p>
 						))}
 					</div>
