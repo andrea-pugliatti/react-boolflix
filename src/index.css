@@ -122,12 +122,18 @@ header {
 	display: flex;
 	margin: 2rem;
 	justify-content: space-between;
+	background-color: rgb(255, 196, 196);
+	border-radius: 20px;
 
 	.movie-body {
 		padding: 2rem;
 		& > * + * {
 			margin-top: 0.5rem;
 		}
+	}
+	img {
+		border-top-right-radius: 20px;
+		border-bottom-right-radius: 20px;
 	}
 
 	.text-bold {
