@@ -44,6 +44,14 @@ header {
 			background-color: rgb(196, 143, 143);
 		}
 	}
+
+	a {
+		color: rgb(153, 23, 23);
+		text-decoration: none;
+		&:hover {
+			cursor: pointer;
+		}
+	}
 }
 
 /* Movies List */
