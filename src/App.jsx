@@ -5,6 +5,7 @@ import { MoviesListProvider } from "./contexts/MoviesListContext";
 import DefaultLayout from "./layouts/DefaultLayout";
 
 import HomePage from "./pages/HomePage";
+import MovieDetailPage from "./pages/MovieDetailPage";
 
 function App() {
 	return (
@@ -13,6 +14,10 @@ function App() {
 				<Routes>
 					<Route path="/" element={<DefaultLayout />}>
 						<Route index element={<HomePage />}></Route>
+						<Route
+							path="/movies/:type/:id"
+							element={<MovieDetailPage />}
+						></Route>
 					</Route>
 				</Routes>
 			</BrowserRouter>
