@@ -37,6 +37,9 @@ export default function Card({
 		for (let i = 0; i < number; i++) {
 			stars += "★";
 		}
+		for (let i = 0; i < 5 - number; i++) {
+			stars += "☆";
+		}
 		return stars;
 	};
 
