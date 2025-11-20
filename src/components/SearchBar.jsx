@@ -20,15 +20,17 @@ export default function SearchBar() {
 		const urlMovies = `${endpoint}movie?api_key=${key}&language=${languageOption}&query=${query}`;
 		const urlSeries = `${endpoint}tv?api_key=${key}&language=${languageOption}&query=${query}`;
 
-		fetch(urlMovies)
-			.then((res) => res.json())
-			.then((res) => setMoviesList(res.results))
-			.catch((err) => console.error(err));
+		if (query.length > 2) {
+			fetch(urlMovies)
+				.then((res) => res.json())
+				.then((res) => setMoviesList(res.results))
+				.catch((err) => console.error(err));
 
-		fetch(urlSeries)
-			.then((res) => res.json())
-			.then((res) => setSeriesList(res.results))
-			.catch((err) => console.error(err));
+			fetch(urlSeries)
+				.then((res) => res.json())
+				.then((res) => setSeriesList(res.results))
+				.catch((err) => console.error(err));
+		}
 
 		setQuery("");
 	};
