@@ -113,6 +113,7 @@ header {
 .movie-page {
 	display: flex;
 	margin: 2rem;
+	justify-content: space-between;
 
 	.movie-body {
 		padding: 2rem;

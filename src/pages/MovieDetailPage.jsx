@@ -85,12 +85,12 @@ export default function MovieDetailPage() {
 					</p>
 					<p>{movie.genres.map((current) => current.name).join(", ")}</p>
 					<p className="movie-description">{movie.overview}</p>
-					<p>
+					<div>
 						Attori principali:
-						{credits.cast.slice(0, 4).map((current) => (
+						{credits?.cast.slice(0, 4).map((current) => (
 							<p key={current.id}>{current.name}</p>
 						))}
-					</p>
+					</div>
 				</div>
 				<img src={`${imageUrl}w342${movie.poster_path}`} alt={movie.title} />
 			</div>
