@@ -65,38 +65,34 @@ export default function MovieDetailPage() {
 
 	return movie ? (
 		<div className="container">
-			<img src={`${imageUrl}w342${movie.poster_path}`} alt={movie.title} />
-
-			<div className="card-body">
-				<p className="card-title">
-					<span className="text-bold">{movie.title}</span>
-				</p>
-				<p className="card-original-title">
-					Titolo originale:{" "}
-					<span className="text-bold">{movie.original_title}</span>
-				</p>
-				<p className="card-language">
-					Lingua:{" "}
-					{flags[movie.original_language]
-						? flags[movie.original_language]
-						: "🏴‍☠️"}
-				</p>
-				<p className="card-rating">
-					Voto: {handleVote(Math.ceil(movie.vote / 2))}
-				</p>
-				<p>
-					{movie.genres.map((current, index) => (
-						<li key={current.id}>
-							Genere {index + 1}: {current.name}
-						</li>
-					))}
-				</p>
-				<p className="card-description">{movie.overview}</p>
-				<p>
-					{credits.cast.map((current) => (
-						<li key={current.id}>{current.name}</li>
-					))}
-				</p>
+			<div className="movie-page">
+				<div className="movie-body">
+					<p className="movie-title">
+						<span className="text-bold">{movie.title}</span>
+					</p>
+					<p className="movie-original-title">
+						Titolo originale:{" "}
+						<span className="text-bold">{movie.original_title}</span>
+					</p>
+					<p className="movie-language">
+						Lingua:{" "}
+						{flags[movie.original_language]
+							? flags[movie.original_language]
+							: "🏴‍☠️"}
+					</p>
+					<p className="movie-rating">
+						Voto: {handleVote(Math.ceil(movie.vote_average / 2))}
+					</p>
+					<p>{movie.genres.map((current) => current.name).join(", ")}</p>
+					<p className="movie-description">{movie.overview}</p>
+					<p>
+						Attori principali:
+						{credits.cast.slice(0, 4).map((current) => (
+							<p key={current.id}>{current.name}</p>
+						))}
+					</p>
+				</div>
+				<img src={`${imageUrl}w342${movie.poster_path}`} alt={movie.title} />
 			</div>
 		</div>
 	) : (

@@ -108,3 +108,24 @@ header {
 		cursor: pointer;
 	}
 }
+
+/* Movie Detail Page */
+.movie-page {
+	display: flex;
+	margin: 2rem;
+
+	.movie-body {
+		padding: 2rem;
+		& > * + * {
+			margin-top: 0.5rem;
+		}
+	}
+
+	.text-bold {
+		font-weight: 800;
+	}
+
+	.movie-title {
+		font-size: 2rem;
+	}
+}
